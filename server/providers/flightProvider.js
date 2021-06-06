@@ -21,16 +21,31 @@ FlightProvider.prototype.getFlightsSortedByNumberOfStops = async function() {
 
 FlightProvider.prototype.getMorningFlights = async function() {
   const allFlights = await this.fetchAllFlightsData()
+  console.log(allFlights[0])
   return allFlights.filter(flight => {
-    const hour = moment(new Date(`${flight.depdate}T${flight.deptime}`)).format('h:mma');
+
+    const hour = moment(new Date(`${flight.outdepartdate}T${flight.outdeparttime}`)).format('h:mma');
     return hour.includes("am");
   });
 }
 
 FlightProvider.prototype.getUniqueFlightNumbers = async function() {
-  const allFlights = await this.fetchAllFlightsData()
+  const allFlights = await this.fetchAllFlightsData();
+  const uniqueDates = [...new Set(allFlights.map(item => item.outdepartdate))]
 
-  return [...new Set(allFlights.map(item => item.flightno))];
+  const flightsPerDate = [];
+  uniqueDates.forEach((date) => {
+    const flightsPerDay = allFlights.filter(flight => {
+      return flight.outdepartdate === date && flight.inflightno;
+    }).map(flight => {
+      return flight.inflightno
+    });
+    flightsPerDate.push({
+      date,
+      flightsPerDay
+    })
+  })
+  return flightsPerDate;
 }
 
 FlightProvider.prototype.getMostPopularDestinations = async function(numberOfDestinations) {

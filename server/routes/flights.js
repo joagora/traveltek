@@ -8,7 +8,7 @@ const flightsRouter = function (provider) {
     res.send(allData);
   });
 
-  router.get('/moststops', async (req, res) => {
+  router.get('/sortedbystops', async (req, res) => {
     const allData = await provider.getFlightsSortedByNumberOfStops();
     res.send(allData);
   });
@@ -18,7 +18,7 @@ const flightsRouter = function (provider) {
     res.send(allData);
   });
   
-  router.get('/unique', async (req, res) => {
+  router.get('/uniqueperday', async (req, res) => {
     const allData = await provider.getUniqueFlightNumbers();
     res.send(allData);
   });
