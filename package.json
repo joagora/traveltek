@@ -1,0 +1,23 @@
+{
+  "name": "traveltek",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "nodemon ./server/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "express": "^4.16.4",
+    "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.13.13",
+    "mocha": "^6.2.2",
+    "nodemon": "^2.0.1",
+    "sinon": "^11.1.1"
+  }
+}
