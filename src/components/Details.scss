@@ -1,0 +1,12 @@
+.row-container {
+    display: flex;
+
+    * {
+        padding: 5px;
+        line-height: 1.2rem;
+    }
+
+    h5 {
+        font-size: 1.2rem;
+    }
+}

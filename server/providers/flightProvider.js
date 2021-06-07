@@ -12,11 +12,11 @@ FlightProvider.prototype.fetchAllFlightsData = async function() {
   return getMappedFlightsData(flights, flightsSegments);
 }
 
-FlightProvider.prototype.getFlightsSortedByNumberOfStops = async function() {
+FlightProvider.prototype.getFlightWithMostStops = async function() {
   const allFlights = await this.fetchAllFlightsData()
   return allFlights.sort((a, b) => {
     return b.segments.length - a.segments.length;
-  });
+  }).slice(0, 1);
 }
 
 FlightProvider.prototype.getMorningFlights = async function() {
@@ -48,7 +48,7 @@ FlightProvider.prototype.getUniqueFlightNumbers = async function() {
   return flightsPerDate;
 }
 
-FlightProvider.prototype.getMostPopularDestinations = async function(numberOfDestinations) {
+FlightProvider.prototype.getMostPopularDestinations = async function() {
   const allFlights = await this.fetchAllFlightsData()
   const destinationPopularity = [];
   allFlights.forEach(flight => {
@@ -67,6 +67,13 @@ FlightProvider.prototype.getMostPopularDestinations = async function(numberOfDes
   });
   return destinationPopularity.sort((a, b) => {
     return b.count - a.count;
+  }).slice(0, 10);
+}
+
+FlightProvider.prototype.getReturnFlightsWithNoStops = async function() {
+  const allFlights = await this.fetchAllFlightsData();
+  return allFlights.filter(flight => {
+    return flight.oneway === "0" && flight.segments.length === 0;
   });
 }
 

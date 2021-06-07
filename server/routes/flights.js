@@ -8,8 +8,8 @@ const flightsRouter = function (provider) {
     res.send(allData);
   });
 
-  router.get('/sortedbystops', async (req, res) => {
-    const allData = await provider.getFlightsSortedByNumberOfStops();
+  router.get('/moststops', async (req, res) => {
+    const allData = await provider.getFlightWithMostStops();
     res.send(allData);
   });
 
@@ -28,6 +28,10 @@ const flightsRouter = function (provider) {
     res.send(allData);
   });
 
+  router.get('/returnwithnostops', async (req, res) => {
+    const allData = await provider.getReturnFlightsWithNoStops();
+    res.send(allData);
+  });
 
   return router
 }

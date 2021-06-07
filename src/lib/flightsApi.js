@@ -13,7 +13,11 @@ export const getUniqueFlightNumbers = () => {
 }
 
 export const getFlightsSortedByStops = () => {
-    return getData(`${baseUrl}sortedbystops`);
+    return getData(`${baseUrl}moststops`);
+}
+
+export const getReturnFlightsWithoutStops = () => {
+    return getData(`${baseUrl}returnwithnostops`);
 }
 
 const getData = (url) => {

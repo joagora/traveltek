@@ -15,7 +15,7 @@ function FlightsTable({ tableData, showStopsNumber }) {
                     <th>{flight.indeparttime}</th>
                     <th>{flight.outarrivaldate}</th>
                     <th>{flight.outarrivaltime}</th>
-                    <th>{flight.oneway === 0 ? "Return": "One way"}</th>
+                    <th>{flight.oneway == 0 ? "Return": "One way"}</th>
                     <th>{flight.originalprice} {flight.originalcurrency}</th>
                     { showStopsNumber && <th>{flight.segments.length}</th> }
                 </tr>
