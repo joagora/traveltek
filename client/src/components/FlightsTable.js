@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table'
 function FlightsTable({ tableData, showStopsNumber }) {
  
     const getRows = () => {
-        return tableData.map((flight, i) => {
+        return tableData?.map((flight, i) => {
             return (
                 <tr key={`${flight.outflightno}-${i}`}>
                     <th >{flight.outflightno}</th>

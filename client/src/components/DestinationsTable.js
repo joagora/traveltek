@@ -2,7 +2,7 @@ import Table from 'react-bootstrap/Table';
 
 function DestinationsTable({popularDestinations}) {
   const getDestinationElements = () => {
-    return popularDestinations.map((destination, i) => {
+    return popularDestinations?.map((destination, i) => {
         return (
           <tr key={`${destination}-${i}`}>
             <td>{ destination.destinationCode }</td>

@@ -3,7 +3,7 @@ import moment from 'moment';
 
 function UniqueFlightNumbers({tableData}) {
     const getRows = () => {
-        return tableData.map((dataElement, i) => {
+        return tableData?.map((dataElement, i) => {
             return (
                 <tr key={`${i}`}>
                     <th >{ moment(dataElement.date).format("MM-DD-YYYY") }</th>

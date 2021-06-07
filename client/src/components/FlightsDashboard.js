@@ -58,17 +58,30 @@ function FlightsDashboard() {
 
     return (
         <Tabs onSelect={handleTabSelection} defaultActiveKey="destinations" id="uncontrolled-tab-example">
-            <Tab eventKey="destinations" title="Popular destinations">
-                { popularDestinations && <DestinationsTable popularDestinations={popularDestinations}></DestinationsTable> }
+            <Tab 
+                eventKey="destinations" 
+                title="Popular destinations">
+                <DestinationsTable 
+                    popularDestinations={popularDestinations}>
+                </DestinationsTable>
             </Tab>
             <Tab eventKey="morning" title="Morning flights">
-                { morningFlights && <FlightsTable tableData={morningFlights}></FlightsTable> }
+                <FlightsTable
+                    tableData={morningFlights}>
+                </FlightsTable>
             </Tab>
             <Tab eventKey="unique" title="Unique flight numbers">
-                { uniqueNumbers && <UniqueFlightNumbersTable tableData={uniqueNumbers}></UniqueFlightNumbersTable> }
+                <UniqueFlightNumbersTable
+                    tableData={uniqueNumbers}>
+                </UniqueFlightNumbersTable>
             </Tab>
-            <Tab eventKey="sortedByStops" title="Flights by numbers of stops">
-                { flightsByStops && <FlightsTable tableData={flightsByStops} showStopsNumber={true}></FlightsTable> }
+            <Tab
+                eventKey="sortedByStops"
+                title="Flights by numbers of stops">
+                <FlightsTable
+                    tableData={flightsByStops}
+                    showStopsNumber={true}>
+                </FlightsTable>
             </Tab>
         </Tabs>
     )
