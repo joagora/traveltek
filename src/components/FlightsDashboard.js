@@ -51,7 +51,7 @@ function FlightsDashboard() {
     }
     useEffect(() => {
         getDestinationsByPopularity().then((destinations) => {
-            const mostPopularDestinations = destinations.slice(0, 10);
+            const mostPopularDestinations = destinations?.slice(0, 10);
             setPopularDestinations(mostPopularDestinations);
         });
     }, [])
